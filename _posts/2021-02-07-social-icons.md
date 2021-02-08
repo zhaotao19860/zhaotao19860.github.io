@@ -22,20 +22,18 @@ cp email.svg github.svg zhaotao19860.github.io/public/img
 ```yaml
 title: ZhaoTao
 email: zhaotao19860@qq.com
-description: >- # this means to ignore newlines until "baseurl:"
+description:
   Just Enjoy It
 highlighter-theme: monokai
 minima:
-  # generate social links in footer
   social_links:
-    #twitter: jekyllrb
     github:  zhaotao19860
 ```
 
 #### social.html(包装)
 
 ```html
-{%- raw  -%}
+{% raw  %}
 {%- assign social = site.minima.social_links -%}
 <ul class="social-media-list">
   {%- if social.github -%}<li><a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}"
@@ -43,13 +41,12 @@ minima:
   {%- if site.email -%}<li><a rel="me" href="mailto:{{ site.email | escape }}" title="{{ social.email | escape }}"><img
         src="/public/img/email.svg" /></a></li>{%- endif -%}
 </ul>
-{%- endraw -%}
+{% endraw %}
 ```
-
 #### sidebar.html(引用)
 
 ```html
-{%- raw  -%}
+{% raw  %}
 <div class="sidebar-item sidebar-header">
 	<div class='sidebar-brand'>
 		<a href="/about/">{{ site.title }}</a>
@@ -59,7 +56,7 @@ minima:
 		{%- include social.html -%}
 	</div>
 </div>
-{%- endraw -%}
+{% endraw %}
 ```
 
 #### public/css/style.css(一行显示)
@@ -73,7 +70,7 @@ minima:
 #### default.html
 
 ```html
-{%- raw  -%}
+{% raw  %}
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
   <style>@import url(/public/css/syntax/{{ site.highlighter-theme }}.css);</style>
@@ -92,7 +89,7 @@ minima:
 	</div>
   </body>
 </html>
-{%- endraw -%}
+{% endraw %}
 ```
 
 #### 关键点
