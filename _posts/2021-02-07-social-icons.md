@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 社交图标配置
+title: social icons
 date: 2021-02-07 20:54:00 +0800
 category: Jekyll
 ---
