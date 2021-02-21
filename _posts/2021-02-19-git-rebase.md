@@ -48,13 +48,13 @@ drop：我要丢弃该commit（缩写:d）
 4. 修改pick为其他命令字符 ----》wq 保存退出；
 ```
 
-<img src="\public\img\git-rebase\git-rebase-2-20200318101308971.png" alt="git-rebase-2-20200318101308971" style="zoom:50%;" />
+<img src="\public\img\git\git-rebase-2-20200318101308971.png" alt="git-rebase-2-20200318101308971" style="zoom:50%;" />
 
 ```
 5. 进入commit信息编辑界面，重新编辑commit信息，wq保存退出；
 ```
 
-<img src="\public\img\git-rebase\git-rebase-3-20200318101643441.png" alt="git-rebase-3-20200318101643441" style="zoom:50%;" />
+<img src="\public\img\git\git-rebase-3-20200318101643441.png" alt="git-rebase-3-20200318101643441" style="zoom:50%;" />
 
 ```
 6. git push -f (如果待合并的commit已经提交到远端，需强制覆盖提交)
