@@ -36,9 +36,11 @@ rte_ipv6_udptcp_cksum()
 #### mbuf链表接口
 >ipv4
 ```c
-inline uint16_t mbuf_ipv4_udptcp_cksum(const struct rte_mbuf *m, const struct ipv4_hdr *ipv4_hdr,uint32_t l4_len) {
+inline uint16_t mbuf_ipv4_udptcp_cksum(const struct rte_mbuf *m, const struct ipv4_hdr *ipv4_hdr) {
     uint32_t cksum;
     uint16_t l4_cksum;
+    uint32_t l4_len;
+    l4_len = rte_be_to_cpu_16(ipv4_hdr->total_length) - sizeof(struct ipv4_hdr);
     rte_raw_cksum_mbuf(m, sizeof(struct ether_hdr) + sizeof(struct ipv4_hdr), l4_len, &l4_cksum);
     cksum = l4_cksum;
     cksum += rte_ipv4_phdr_cksum(ipv4_hdr, 0);
@@ -51,10 +53,12 @@ inline uint16_t mbuf_ipv4_udptcp_cksum(const struct rte_mbuf *m, const struct ip
 ```
 ipv6
 ```c
-inline uint16_t mbuf_ipv6_udptcp_cksum(const struct rte_mbuf *m, const struct ipv6_hdr *ipv6_hdr,uint32_t l4_len) {
+inline uint16_t mbuf_ipv6_udptcp_cksum(const struct rte_mbuf *m, const struct ipv6_hdr *ipv6_hdr) {
     uint32_t cksum;
     uint16_t l4_cksum;
+    uint32_t l4_len;
     //因为mbuf中不存在扩展头，所以offset的计算中不需要考虑扩展头
+    l4_len = rte_be_to_cpu_16(ipv6_hdr->payload_len);
     rte_raw_cksum_mbuf(m, sizeof(struct ether_hdr) + sizeof(struct ipv6_hdr), l4_len, &l4_cksum);
     cksum = l4_cksum;
     cksum += rte_ipv6_phdr_cksum(ipv6_hdr, 0);
