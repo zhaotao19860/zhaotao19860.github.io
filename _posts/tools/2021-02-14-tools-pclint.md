@@ -2,7 +2,7 @@
 layout: post
 title: pclint
 date: 2021-02-14 12:40:00 +0800
-category: C
+category: Tools
 ---
 
 1. 概述

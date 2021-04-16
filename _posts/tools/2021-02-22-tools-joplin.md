@@ -2,7 +2,7 @@
 layout: post
 title: Joplin
 date: 2021-02-22 11:40:00 +0800
-category: Joplin
+category: Tools
 ---
 
 [Joplin](https://github.com/laurent22/joplin)是一款开源的笔记类软件，支持Windows, macOS, Linux, Android and iOS等多种客户端。本文提供一套自有且完全开源的笔记系统的搭建过程，基于[wsgidav](https://github.com/mar10/wsgidav)作为服务端，提供同步功能；joplin作为客户端，提供编辑及浏览功能。

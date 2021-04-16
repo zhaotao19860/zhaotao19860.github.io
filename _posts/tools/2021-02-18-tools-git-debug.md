@@ -2,7 +2,7 @@
 layout: post
 title: git debug
 date: 2021-02-18 10:58:00 +0800
-category: GIT
+category: Tools
 ---
 
 ## 概述

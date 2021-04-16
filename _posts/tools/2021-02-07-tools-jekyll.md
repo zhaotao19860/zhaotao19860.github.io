@@ -2,7 +2,7 @@
 layout: post
 title: jekyll
 date: 2021-02-07 16:12:00 +0800
-category: Jekyll
+category: Tools
 ---
 
 #### 安装ruby

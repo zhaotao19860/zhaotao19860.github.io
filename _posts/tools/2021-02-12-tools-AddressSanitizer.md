@@ -2,7 +2,7 @@
 layout: post
 title:  AddressSanitizer
 date:   2021-02-12 19:12:00 +0900
-categories: C
+categories: Tools
 ---
 
 ## 概述

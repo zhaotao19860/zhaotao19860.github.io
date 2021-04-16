@@ -2,7 +2,7 @@
 layout: post
 title: filecmp
 date: 2021-02-05 10:29:00 +0800
-category: Python
+category: Libs
 ---
 
 #### 简述

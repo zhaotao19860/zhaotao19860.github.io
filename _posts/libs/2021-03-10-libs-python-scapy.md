@@ -2,7 +2,7 @@
 layout: post
 title: python scapy
 date: 2021-03-10 09:35:00 +0800
-category: Python
+category: Libs
 ---
 [scapy](https://github.com/secdev/scapy)主要优势在于丰富的协议数据包构造。原理为基于libpcap(windows上是winpcap/npcap)提供的一个python接口。本文主要以dns协议为例，说明scapy的使用。
 ### 安装

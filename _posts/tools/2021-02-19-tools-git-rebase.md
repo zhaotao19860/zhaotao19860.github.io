@@ -2,7 +2,7 @@
 layout: post
 title: git rebase
 date: 2021-02-19 10:52:00 +0800
-category: GIT
+category: Tools
 ---
 当一个功能分支开发完毕后，一般会有若干次的编译问题，优化问题及代码调整问题的提交，而这些提交没有必要体现在主干分支的log里面，为了保持主干分支log的简洁性，有必要提前合并一下，然后再merge到主干。
 
@@ -24,7 +24,7 @@ category: GIT
 
 出现以下画面
 
-<img src="\public\img\git-rebase\git-rebase-1-20200318101000666.png" alt="git-rebase-1-20200318101000666" style="zoom:50%;" />
+<img src="\public\img\git\git-rebase-1-20200318101000666.png" alt="git-rebase-1-20200318101000666" style="zoom:50%;" />
 
 下面未被注释的部分列出的是我们本次rebase操作包含的所有提交，下面注释部分是git为我们提供的命令说明。每一个commit id 前面的pick表示指令类型，git 为我们提供了以下几个命令:
 

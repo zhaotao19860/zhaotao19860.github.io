@@ -2,7 +2,7 @@
 layout: post
 title: dpdk适配mellanox网卡
 date: 2021-03-12 18:43:00 +0800
-category: Dpdk
+category: DPDK
 ---
 以网卡Mellanox Technologies MT27710 Family [ConnectX-4 Lx]为例。
 #### dpdk编译参数

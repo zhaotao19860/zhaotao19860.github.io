@@ -2,7 +2,7 @@
 layout: post
 title: protobuf for c
 date: 2021-03-08 11:16:00 +0800
-category: Linux
+category: Libs
 ---
 [protobuf](https://github.com/protocolbuffers/protobuf)是google提供的一种数据序列化、反序列化工具，支持变长编码(数据压缩)、向后兼容(方便升级)、平台无关(方便移植)、语言无关(前后台解耦)等优秀特性。可用于数据存储、网络数据交互等场景。本文主要介绍protobuf在c语言编程中的安装步骤。<br/>
 > protobuf安装包主要包括两部分：代码生成器(处理.proto) + 运行时库。<br/>

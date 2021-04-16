@@ -2,7 +2,7 @@
 layout: post
 title: vscode gdb
 date: 2021-02-26 10:49:00 +0800
-category: Vscode
+category: Tools
 ---
 
 #### 概述

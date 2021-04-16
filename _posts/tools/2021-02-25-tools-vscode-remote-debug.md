@@ -2,7 +2,7 @@
 layout: post
 title: vscode远程调试
 date: 2021-02-25 9:45:00 +0800
-category: Vscode
+category: Tools
 ---
 当开发linux应用时，一般的开发环境配置为：windows上完成编码，linux上完成编译加调试。但此种配置时，需要频繁的windows<=====>linux之间切换，对工作效率影响极大。[vscode](https://code.visualstudio.com/)的[debug](https://code.visualstudio.com/docs/editor/debugging)特性完美的解决了这个问题，同时支持launch(启动调试)和attach(挂载调试)。
 1. 要求

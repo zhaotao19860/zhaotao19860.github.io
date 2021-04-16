@@ -1,6 +1,6 @@
 ---
 layout: post
-title: history命令
+title: history
 date: 2021-03-14 09:53:00 +0800
 category: Linux
 ---

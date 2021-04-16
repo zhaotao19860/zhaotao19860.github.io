@@ -2,7 +2,7 @@
 layout: post
 title: Windows VirtualBox
 date: 2021-03-02 09:55:00 +0800
-category: Windows
+category: Tools
 ---
 &nbsp;&nbsp;&nbsp;&nbsp;[VirtualBox](https://www.virtualbox.org/)是一款开源的虚拟机软件，支持windows/linux/mac等多个系统。
 

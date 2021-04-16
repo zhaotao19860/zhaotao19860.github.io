@@ -2,7 +2,7 @@
 layout: post
 title: scan-build
 date: 2021-02-11 11:23:00 +0800
-category: C
+category: Tools
 ---
 
 ## 概述

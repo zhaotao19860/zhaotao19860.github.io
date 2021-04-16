@@ -2,7 +2,7 @@
 layout: post
 title: git lfs
 date: 2021-02-20 14:23:00 +0800
-category: GIT
+category: Tools
 ---
 
 | <font color="#dd0000">windows</font>                                                  |

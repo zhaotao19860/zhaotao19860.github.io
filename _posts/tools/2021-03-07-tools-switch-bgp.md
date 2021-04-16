@@ -2,7 +2,7 @@
 layout: post
 title: 交换机bgp配置
 date: 2021-03-07 11:47:00 +0800
-category: Switch
+category: Tools
 ---
 BGP(Border Gateway Protocol)，即边际网关协议，主要用于AS(autonomous system)之间的路由信息交换(EBGP)，也可用于大型的AS内部(IBGP)。提供BGP服务的实体叫做BGP router，而与BGP router连接的对端叫做BGP peer。推荐阅读[BGP漫谈](https://zhuanlan.zhihu.com/p/25433049)。本文主要讲解基于华为三层交换机[H3C S5830V2]的配置方法。
 1. 登录交换机
