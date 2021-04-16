@@ -1,7 +1,7 @@
 ---
 layout: post
-title: mysql常用命令
-date: 2021-03-15 10:00:00 +0800
+title: mysql
+date: 2021-04-16 17:00:00 +0800
 category: Tools
 ---
 
