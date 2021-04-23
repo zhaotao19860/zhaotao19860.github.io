@@ -1,8 +1,0 @@
-{%- assign social = site.minima.social_links -%}
-
-<ul class="social-media-list">
-  {%- if social.github -%}<li><a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}"
-      title="{{ social.github | escape }}"><img src="/public/img/github.svg" /></a></li>{%- endif -%}
-  {%- if site.email -%}<li><a rel="me" href="mailto:{{ site.email | escape }}" title="{{ social.email | escape }}"><img
-        src="/public/img/email.svg" /></a></li>{%- endif -%}
-</ul>

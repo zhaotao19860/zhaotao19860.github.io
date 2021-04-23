@@ -1,11 +1,8 @@
 ---
-layout: post
 title: pdump
 date: 2021-02-06 10:23:00 +0800
 category: DPDK
 ---
-
-#### 简述
 
 类似与tcpdump，可将dpdk的收发报文保存为pcap文件格式。
 收包：网卡-->DMA-->rx_ring-->rx_burst-->rx_pkt_burst-->pdump_callback-->app;

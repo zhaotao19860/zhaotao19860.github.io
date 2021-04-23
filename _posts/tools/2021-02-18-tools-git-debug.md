@@ -1,12 +1,10 @@
 ---
-layout: post
 title: git debug
 date: 2021-02-18 10:58:00 +0800
 category: Tools
 ---
 
-## 概述
-&nbsp;&nbsp;&nbsp;&nbsp;git传输协议支持**http**(如：https://github.com/zhaotao19860/mem-monitor.git)和**ssh**(如：git@github.com:zhaotao19860/mem-monitor.git)两种方式，因为我开发过程中主要使用ssh传输协议，所以下面以ssh协议为例分析如何调试。git运行包括两部分**ssh连接+git命令运行(本机部分+远端部分)**，所以调试也分两部分。
+git传输协议支持**http**(如：https://github.com/zhaotao19860/mem-monitor.git)和**ssh**(如：git@github.com:zhaotao19860/mem-monitor.git)两种方式，因为我开发过程中主要使用ssh传输协议，所以下面以ssh协议为例分析如何调试。git运行包括两部分**ssh连接+git命令运行(本机部分+远端部分)**，所以调试也分两部分。
 
 ## git部分
 

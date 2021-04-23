@@ -1,12 +1,10 @@
 ---
-layout: post
 title: dpdk debug
 date: 2021-02-15 11:24:00 +0800
 category: DPDK
 ---
 
-#### 简述
-　　版本：[19.11.5](http://fast.dpdk.org/rel/)，当引用dpdk相关功能出错时，需要dpdk提供详细的出错信息或gdb调试的能力，以[librte_ip_frag](https://doc.dpdk.org/guides-19.05/sample_app_ug/ip_frag.html)库为例。
+版本：[19.11.5](http://fast.dpdk.org/rel/)，当引用dpdk相关功能出错时，需要dpdk提供详细的出错信息或gdb调试的能力，以[librte_ip_frag](https://doc.dpdk.org/guides-19.05/sample_app_ug/ip_frag.html)库为例。
 
 #### 步骤
 

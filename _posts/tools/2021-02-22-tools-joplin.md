@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Joplin
 date: 2021-02-22 11:40:00 +0800
 category: Tools

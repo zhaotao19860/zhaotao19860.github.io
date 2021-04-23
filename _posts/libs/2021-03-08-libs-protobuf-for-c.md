@@ -1,5 +1,4 @@
 ---
-layout: post
 title: protobuf for c
 date: 2021-03-08 11:16:00 +0800
 category: Libs
@@ -9,7 +8,8 @@ category: Libs
 > c: 由于官方主代码库不提供c库，需要安装第三方库(插件形式)。<br/>
 > c++/java/go/c#/python/js/object-c/ruby/php/dart: 均可使用官方库安装。
 
-1. 安装protobuf(包括c++代码生成器 和 c++运行时库)
+### 安装protobuf
+包括c++代码生成器 和 c++运行时库
 ```bash
 wget https://github.com/google/protobuf/releases/download/v3.6.0/protobuf-cpp-3.6.0.tar.gz
 tar xvf protobuf-cpp-3.6.0.tar.gz
@@ -18,7 +18,8 @@ cd protobuf-3.6.0
 make                                                                     
 make install
 ```
-2. 安装protobuf-c(包括c代码生成器 - 依赖protobuf-c++ 和c运行时库)
+### 安装protobuf-c
+包括c代码生成器 - 依赖protobuf-c++ 和c运行时库
 ```bash
 wget https://github.com/protobuf-c/protobuf-c/releases/download/v1.3.3/protobuf-c-1.3.3.tar.gz
 tar xvf protobuf-c-1.3.3.tar.gz
@@ -28,7 +29,7 @@ export PKG_CONFIG_PATH=/home/zhaotao/lib/protobuf/lib/pkgconfig  // 指定protob
 make
 make install
 ```
-3. 配置环境变量
+### 配置环境变量
 ```bash
 ####### add protobuf lib path ########
 #(动态库搜索路径) 程序加载运行期间查找动态链接库时指定除了系统默认路径之外的其他路径
@@ -44,8 +45,8 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/zhaotao/lib/include/
 #pkg-config 路径
 export PKG_CONFIG_PATH=/home/zhaotao/lib/pkgconfig/
 ```
-4. 注意事项
-<br/>—— PKG_CONFIG_PATH
+### 注意事项
+—— PKG_CONFIG_PATH
 ```bash
 如果没有使用export PKG_CONFIG_PATH=/home/zhaotao/lib/protobuf/lib/pkgconfig，在./configure这步可能会报错：
 **No package 'protobuf' found**

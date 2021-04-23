@@ -1,11 +1,9 @@
 ---
-layout: post
 title: scan-build
 date: 2021-02-11 11:23:00 +0800
 category: Tools
 ---
 
-## 概述
 用于编译时静态代码调用链检测，属于clang工具箱，需要注意的是没有编译的文件是不会检查的。
 
 ## 安装
@@ -30,5 +28,5 @@ http://10.226.133.67/
 
 ## 实例
 
-![scan-build.png](/public/img/scan-build.png)
+![scan-build.png](/assets/images/scan-build.png)
 

@@ -1,26 +1,25 @@
 ---
-layout: post
 title: pclint
 date: 2021-02-14 12:40:00 +0800
 category: Tools
 ---
 
-1. 概述
-<br>&nbsp;&nbsp;&nbsp;&nbsp;pclint提供c/c++的静态代码检查功能，不需要编译，检查变量定义问题及代码逻辑问题，是一款优秀的商业软件。
-2. 下载
+pclint提供c/c++的静态代码检查功能，不需要编译，检查变量定义问题及代码逻辑问题，是一款优秀的商业软件。
+
+### 下载
 ```bash
 https://gimpel.com/
 ```
-3. 安装
+### 安装
 ```bash
 一路next，不生成配置
 ```
-4. 基本使用
+### 基本使用
 ```bat
 lint-nt.exe options file1 [ file2 file3... ]
 其中：options/files都可以放入lnt文件，方便批量处理。
 ```
-5. 批量处理
+### 批量处理
     - 安装系统头文件(c:/lint/include/linux)
       ```bash
       从linux系统中下载(需要啥下啥)：

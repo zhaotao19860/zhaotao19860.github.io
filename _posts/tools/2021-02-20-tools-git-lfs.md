@@ -1,9 +1,9 @@
 ---
-layout: post
 title: git lfs
 date: 2021-02-20 14:23:00 +0800
 category: Tools
 ---
+[git-lfs](https://git-lfs.github.com/)(Large File Storage)，简化了git对于大文件的管理。
 
 | <font color="#dd0000">windows</font>                                                  |
 | :------------------------------------------------------------ |

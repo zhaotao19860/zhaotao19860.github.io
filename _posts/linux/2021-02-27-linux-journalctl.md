@@ -1,5 +1,4 @@
 ---
-layout: post
 title: journalctl
 date: 2021-02-27 15:24:00 +0800
 category: Linux
@@ -18,27 +17,27 @@ journald及syslogd都是用于收集系统日志的后台进程，linux系统都
 2.syslogd同样也提供了插件可以[读取](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imjournal.html)和[写入](https://rsyslog.readthedocs.io/en/latest/configuration/modules/omjournal.html)journald;<br/>
 **推荐阅读**：[Tutorial: Logging with journald](https://sematext.com/blog/journald-logging-tutorial/#toc-journald-vs-syslog-14)
 
-1. 查看实时日志
+### 查看实时日志
    ```
    journalctl -f
    ```
-2. 查看UID为1000的用户今天以来的日志
+### 查看UID为1000的用户今天以来的日志
    ```
    journalctl _UID=1000 --since today
    ```
-3. 查看1分钟以前的日志
+### 查看1分钟以前的日志
    ```
    journalctl --since "1 min ago"
    ```
-4. 查看某个单元/服务的日志
+### 查看某个单元/服务的日志
    ```
    journalctl -u wsgidav --since today
    ```
-5. 查看指定PID的日志
+### 查看指定PID的日志
    ```
    journalctl _PID=1000 -f
    ```
-6. 查看内核日志
+### 查看内核日志
    ```
    journalctl -k
    ```

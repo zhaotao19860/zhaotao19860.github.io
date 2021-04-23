@@ -1,12 +1,11 @@
 ---
-layout: post
 title: mysql
 date: 2021-04-16 17:00:00 +0800
 category: Tools
 ---
 
-#### 概述
 **mysql**用于操作mysql数据库的命令行工具。
+
 #### 连接
 ```bash
 mysql -h10.226.133.67 -P3306 -uroot -pxwS7UDKwHxff  db_dns_master

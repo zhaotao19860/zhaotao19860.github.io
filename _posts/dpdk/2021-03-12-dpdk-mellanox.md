@@ -1,10 +1,10 @@
 ---
-layout: post
 title: dpdk适配mellanox网卡
 date: 2021-03-12 18:43:00 +0800
 category: DPDK
 ---
 以网卡Mellanox Technologies MT27710 Family [ConnectX-4 Lx]为例。
+
 #### dpdk编译参数
 由于mlx5有额外的依赖，dpdk默认不编译mlx5，因此需要修改common_base，如下
 ```

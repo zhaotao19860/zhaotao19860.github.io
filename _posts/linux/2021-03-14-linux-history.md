@@ -1,10 +1,10 @@
 ---
-layout: post
 title: history
 date: 2021-03-14 09:53:00 +0800
 category: Linux
 ---
 history命令用于显示历史上执行过的shell命令，原理是：当执行完shell命令后，系统会将命令报存在内存中，当shell退出时会将内存中的命令存入文件中，比如~/.bash_history，存储的文件及存储的个数都可以用配置项配置。
+
 #### 清除历史
 ```bash
 history -c #清除内存
@@ -29,13 +29,13 @@ export HISTCONTROL=ignoreboth   # 等价于ignoredups和ignorespace
 ```
 
 #### 重启生效(root)
-```
+```bash
 echo 'export HISTTIMEFORMAT="%F %T "' >> ~/.bashrc
 bash ~/.bashrc
 ```
 
 #### 重启生效(all)
-```
+```bash
 echo 'export HISTTIMEFORMAT="%F %T "' >> /etc/profile
 bash /etc/profile
 ```

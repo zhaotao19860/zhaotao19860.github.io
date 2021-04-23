@@ -1,5 +1,4 @@
 ---
-layout: post
 title: git 基础命令
 date: 2021-02-21 10:21:00 +0800
 category: Tools
@@ -64,8 +63,8 @@ git push                                //将所有文件从本地仓库推送�
 
 ## git add
 
-![git-add.jpg](/public/img/git/git-add.jpg)
+![git-add.jpg](/assets/images/git/git-add.jpg)
 
 ## git各空间交互
 
-![git-all.png](/public/img/git/git-all.png)
+![git-all.png](/assets/images/git/git-all.png)

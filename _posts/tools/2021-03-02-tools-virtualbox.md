@@ -1,25 +1,24 @@
 ---
-layout: post
 title: Windows VirtualBox
 date: 2021-03-02 09:55:00 +0800
 category: Tools
 ---
-&nbsp;&nbsp;&nbsp;&nbsp;[VirtualBox](https://www.virtualbox.org/)是一款开源的虚拟机软件，支持windows/linux/mac等多个系统。
+[VirtualBox](https://www.virtualbox.org/)是一款开源的虚拟机软件，支持windows/linux/mac等多个系统。
 
-1. 软件下载
+### 软件下载
 ```bash
 # virtualbox(开源)
 https://www.virtualbox.org/wiki/Downloads
 ```
-2. 软件安装
+### 软件安装
 ```bash
 双击
 ```
-3. 镜像下载
+### 镜像下载
 ```bash
 http://mirrors.aliyun.com/centos/7/isos/x86_64/
 ```
-4. 镜像安装
+### 镜像安装
 ```bash
 # 加载iso镜像
 CentOS-7-x86_64-DVD-2009.iso
@@ -28,12 +27,12 @@ CentOS-7-x86_64-DVD-2009.iso
 # 开始安装
 设置系统安装盘，设置root密码，最小化安装
 ```
-5. 登录虚拟机
+### 登录虚拟机
 ```bash
 consol方式：不需要配置；
 ssh方式：如果网络连接方式选择nat，需要根据第8步配置端口映射；
 ```
-6. 系统配置
+### 系统配置
 ```bash
 # 登录
 console/ssh
@@ -47,7 +46,7 @@ systemctl stop firewalld
 # 重启系统
 reboot 
 ```
-7. 修改yum源
+### 修改yum源
 ```bash
 # 登录
 console/ssh
@@ -62,12 +61,12 @@ yum makecache
 # 安装epel
 yum install epel-release
 ```
-8. 端口映射
+### 端口映射
 ```bash
 1.停止虚拟机；
 2.设置端口映射；
 3.启动虚拟机；
 4.配置xshell--->ssh root@127.0.0.1:2222
 ```
-<br/>![img](/public/img/virtualbox/nat.png)
-![img](/public/img/virtualbox/port-map.png)
+<br/>![img](/assets/images/virtualbox/nat.png)
+![img](/assets/images/virtualbox/port-map.png)

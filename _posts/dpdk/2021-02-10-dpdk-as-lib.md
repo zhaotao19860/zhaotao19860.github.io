@@ -1,11 +1,8 @@
 ---
-layout: post
 title: dpdk-as-lib
 date: 2021-02-10 19:35:00 +0800
 category: DPDK
 ---
-
-#### 简述
 
 当把dpdk作为第三方库使用时，makefile该怎么写呢？当自己的代码是c++的时候该怎么改呢？
 以下使用dpdk-stable-16.11.2/examples/ip_reassembly为例。

@@ -1,11 +1,8 @@
 ---
-layout: post
 title: social icons
 date: 2021-02-08 20:54:00 +0800
 category: Tools
 ---
-
-#### 概述
 
 博客中社交图标(social icons)通常用来表示链接一些网站的logo，使界面简洁好看，比如github/qq/email等，下面从获取到配置到使用给出了基于jeckll的详细配置，并提供了将svg图标缩小和竖排改为横排的方法。
 
@@ -14,7 +11,7 @@ category: Tools
 ```bash
 git clone https://github.com/edent/SuperTinyIcons.git
 cd SuperTinyIcons/images/svg
-cp email.svg github.svg zhaotao19860.github.io/public/img
+cp email.svg github.svg zhaotao19860.github.io/assets/images
 ```
 
 #### _config.yml(配置)
@@ -37,9 +34,9 @@ minima:
 {%- assign social = site.minima.social_links -%}
 <ul class="social-media-list">
   {%- if social.github -%}<li><a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}"
-      title="{{ social.github | escape }}"><img src="/public/img/github.svg" /></a></li>{%- endif -%}
+      title="{{ social.github | escape }}"><img src="/assets/images/github.svg" /></a></li>{%- endif -%}
   {%- if site.email -%}<li><a rel="me" href="mailto:{{ site.email | escape }}" title="{{ social.email | escape }}"><img
-        src="/public/img/email.svg" /></a></li>{%- endif -%}
+        src="/assets/images/email.svg" /></a></li>{%- endif -%}
 </ul>
 {% endraw %}
 ```

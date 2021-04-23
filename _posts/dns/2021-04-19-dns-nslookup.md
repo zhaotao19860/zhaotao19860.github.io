@@ -1,11 +1,8 @@
 ---
-layout: post
 title: nslookup
 date: 2021-04-19 11:44:00 +0800
 category: DNS
 ---
-
-#### 概述
 
 **nslookup**(name server lookup)域名记录查询器，用来查询域名相关信息，包括linux版本及windows自带版本。
 

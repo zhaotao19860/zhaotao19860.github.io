@@ -1,5 +1,4 @@
 ---
-layout: post
 title: git rebase
 date: 2021-02-19 10:52:00 +0800
 category: Tools
@@ -24,7 +23,7 @@ category: Tools
 
 出现以下画面
 
-<img src="\public\img\git\git-rebase-1-20200318101000666.png" alt="git-rebase-1-20200318101000666" style="zoom:50%;" />
+<img src="\assets\images\git\git-rebase-1-20200318101000666.png" alt="git-rebase-1-20200318101000666" style="zoom:50%;" />
 
 下面未被注释的部分列出的是我们本次rebase操作包含的所有提交，下面注释部分是git为我们提供的命令说明。每一个commit id 前面的pick表示指令类型，git 为我们提供了以下几个命令:
 
@@ -48,13 +47,13 @@ drop：我要丢弃该commit（缩写:d）
 4. 修改pick为其他命令字符 ----》wq 保存退出；
 ```
 
-<img src="\public\img\git\git-rebase-2-20200318101308971.png" alt="git-rebase-2-20200318101308971" style="zoom:50%;" />
+<img src="\assets\images\git\git-rebase-2-20200318101308971.png" alt="git-rebase-2-20200318101308971" style="zoom:50%;" />
 
 ```
 5. 进入commit信息编辑界面，重新编辑commit信息，wq保存退出；
 ```
 
-<img src="\public\img\git\git-rebase-3-20200318101643441.png" alt="git-rebase-3-20200318101643441" style="zoom:50%;" />
+<img src="\assets\images\git\git-rebase-3-20200318101643441.png" alt="git-rebase-3-20200318101643441" style="zoom:50%;" />
 
 ```
 6. git push -f (如果待合并的commit已经提交到远端，需强制覆盖提交)

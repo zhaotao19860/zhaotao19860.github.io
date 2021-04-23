@@ -1,9 +1,9 @@
 ---
-layout: post
 title: jekyll
 date: 2021-02-07 16:12:00 +0800
 category: Tools
 ---
+[jekyll](https://jekyllrb.com/)作为一个优秀的静态网站生成工具，再加上与github的无缝集成，可方便且免费的架设自己的技术博客，赶快用起来吧。
 
 #### 安装ruby
 
@@ -84,12 +84,16 @@ bundler -v
 问题1：
   in 'to_specs': Could not find 'bundler' (1.17.2) required by your Gemfile.lock. (Gem::MissingSpecVersionError)
 方案：
-  gem install bundler:1.17.2
+  gem install bundler:1.17.1
 问题2： 
   Could not find public_suffix-4.0.3 in any of the sources (Bundler::GemNotFound)
 方案：
   bundle update
-问题3：
+问题3： 
+  in `block in materialize': Could not find concurrent-ruby-1.1.3 in any of the sources (Bundler::GemNotFound)
+方案：
+  bundle update
+问题4：
   in 'require': cannot load such file -- webrick (LoadError)
 方案：
   bundle add webrick

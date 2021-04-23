@@ -1,16 +1,14 @@
 ---
-layout: post
 title: filecmp
 date: 2021-02-05 10:29:00 +0800
 category: Libs
 ---
 
-#### 简述
-
-```
 Python2.3以上的版本默认自带了filecmp模块，无需额外安装。我们可以用这个模块来检查原式与目标文件的一致性，
 filecmp可以实现文件、目录、遍历子目录的差异对比功能。
-代码路径：
+
+#### 代码
+```
 https://github.com/python/cpython/blob/2.7/Lib/filecmp.py
 https://github.com/python/cpython/blob/3.7/Lib/filecmp.py
 ```

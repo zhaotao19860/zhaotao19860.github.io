@@ -1,5 +1,4 @@
 ---
-layout: post
 title: DPDK分片与重组
 date: 2021-03-09 17:12:00 +0800
 category: DPDK
@@ -14,7 +13,7 @@ DPDK版本：[16.11.2](http://fast.dpdk.org/rel/)，默认支持对大报文的�
 > 6. fragment后ipv4校验和如果自己计算的话，需要重置掉offload标志；
 > 7. fragment后要free掉原始的mbuf，否则send后会出现mbuf泄漏；
 
-1. mbuf读取接口
+### mbuf读取接口
 ```c
 #支持读取mbuf链表，并将读取到的数据填充到buf中
 static inline int pdns_pktmbuf_read(struct rte_mbuf *m, uint32_t *offset, uint32_t len, void *buf) {
@@ -30,7 +29,7 @@ static inline int pdns_pktmbuf_read(struct rte_mbuf *m, uint32_t *offset, uint32
     return 0;
 }
 ```
-2. mbuf写入接口
+### mbuf写入接口
 ```c
 struct pkt_filler_state {
     struct rte_mbuf *m; //保存第一个mbuf指针；
@@ -111,7 +110,7 @@ int fill_mbuf_chain(void *buf, uint16_t size, struct pkt_filler_state *state) {
     return __fill_mbuf_chain((uint8_t *)buf, size, state);
 }
 ```
-3. 报文重组接口
+### 报文重组接口
 ```c
 /*
  * 重组ipv4/ipv6分片报文.
@@ -171,7 +170,7 @@ static inline struct rte_mbuf *reassemble(struct rte_mbuf *m, lcore_forward_t *f
     return m;
 }
 ```
-4. 报文分片接口
+### 报文分片接口
 ```c
 /*
  * Default byte size for the IPv6 Maximum Transfer Unit (MTU).

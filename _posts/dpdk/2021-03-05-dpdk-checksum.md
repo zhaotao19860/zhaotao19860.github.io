@@ -1,13 +1,11 @@
 ---
-layout: post
 title: dpdk checksum
 date: 2021-03-05 11:25:00 +0800
 category: DPDK
 ---
 
-#### 简述
-　　版本：[16.11.2](http://fast.dpdk.org/rel/)，当解析或组装ip/icmp/icmpv6/igmp/udp/tcp/sctp报文时，会发现都存在两个字节(16位)的checksum字段，其生成及校验算法相同。实现方式有两种：1，软件方式计算；2，offload到网卡计算。本文主要介绍软件计算方法及dpdk中的实现。<br/>
-　　***注意：***当代码中设置了offload标志后，就不能使用软件方法计算，否则校验和重复计算会导致错误，因为硬件计算时校验和字段不为0。
+版本：[16.11.2](http://fast.dpdk.org/rel/)，当解析或组装ip/icmp/icmpv6/igmp/udp/tcp/sctp报文时，会发现都存在两个字节(16位)的checksum字段，其生成及校验算法相同。实现方式有两种：1，软件方式计算；2，offload到网卡计算。本文主要介绍软件计算方法及dpdk中的实现。<br/>
+***注意：***当代码中设置了offload标志后，就不能使用软件方法计算，否则校验和重复计算会导致错误，因为硬件计算时校验和字段不为0。
 
 #### 算法
 ```

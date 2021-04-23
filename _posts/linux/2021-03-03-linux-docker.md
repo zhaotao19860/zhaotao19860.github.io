@@ -1,20 +1,20 @@
 ---
-layout: post
 title: Docker
 date: 2021-03-03 09:50:00 +0800
 category: Linux
 ---
 [docker](https://github.com/docker)是一种轻量级的虚拟化技术，用go语言实现，充分利用了linux的cgroups/namespaces/UnionFS三大技术，解决了开发环境和生产环境环境不一致和资源共享的问题。
-1. 安装
+
+### 安装
    ```bash
    yum install docker
    ```
-2. 启动
+### 启动
    ```bash
    systemctl enable docker
    systemctl start docker
    ```
-3. 制作镜像
+### 制作镜像
    ```bash
    1)获取系统基础包
      https://github.com/CentOS/sig-cloud-instance-images/tree/CentOS-7.2.1511/docker
@@ -42,7 +42,7 @@ category: Linux
    3)生成镜像
      docker build -t hub.ark.jcloud.com/zhaotao1/centos7.2 -f Dockerfile7.2.base .
    ```
-4. 命令
+### 命令
    ```
    1)登录仓库：docker login hub.ark.jcloud.com 
    2)推镜像：docker push hub.ark.jcloud.com/proxy-dns/centos7.2
@@ -72,7 +72,7 @@ category: Linux
    17)查看container: docker ps -a
    18)查看container配置：docker inspect container-id
    ```
-5. 问题
+### 问题
    ```bash
    1)443端口访问拒绝
      现象：Get https://hub.ark.jcloud.com/v1/_ping: dial tcp 172.19.4.61:443: connect: connection refused;

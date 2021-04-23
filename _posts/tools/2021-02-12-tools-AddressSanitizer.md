@@ -1,12 +1,10 @@
 ---
-layout: post
 title:  AddressSanitizer
 date:   2021-02-12 19:12:00 +0900
 categories: Tools
 ---
 
-## 概述
-&nbsp;&nbsp;&nbsp;&nbsp;AddressSanitizer（地址杀菌剂，简称 ASan） 是谷歌出品的内存检查工具，可以诊断内存越界，
+AddressSanitizer（地址杀菌剂，简称 ASan） 是谷歌出品的内存检查工具，可以诊断内存越界，
 非法访问，内存泄漏，内存double free等常见内存问题，并且效率比valgrind高好几倍，可以克服valgrind的一些问题，比如占用内存高的问题。<br>
 &nbsp;&nbsp;&nbsp;&nbsp;gcc 4.8 开始，AddressSanitizer 成为 gcc 的一部分，但不支持符号信息，无法显示出问题的函数和行数。
 从 4.9 开始，gcc 支持 AddressSanitizer 的所有功能。<br>

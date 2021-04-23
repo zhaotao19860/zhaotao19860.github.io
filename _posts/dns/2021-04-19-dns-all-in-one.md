@@ -1,13 +1,13 @@
 ---
-layout: post
 title: dns全流程
 date: 2021-04-20 17:28:00 +0800
 category: DNS
 ---
 
-#### 概述
-**dns**(domain name server)域名服务，整个解析流程涉及3种服务器。
-![dns_server.jpg](/public/img/dns/dns_server.jpg)<br/>
+**dns**(domain name server)域名服务，整个解析流程涉及3种服务器，存根解析器/递归解析器/授权服务器。
+
+#### 相关概念
+![dns_server.jpg](/assets/images/dns/dns_server.jpg)<br/>
 以下分别通过dig/bind/adns三个软件模拟一个完整的递归流程。
 > 名词解释：<br/>
 > stub_resolver: 存根解析器，包括操作系统提供的dns解析库(getaddrinfo)或者用户自己实现的dns解析库(bind)，和相关的配置(resolv.conf/hosts)。<br/>
@@ -18,7 +18,7 @@ category: DNS
 > adns: 个人实现的基于dpdk的高速dns授权服务器。<br/>
 
 #### 拓扑结构
-![all-in-one.png](/public/img/dns/all-in-one.png)
+![all-in-one.png](/assets/images/dns/all-in-one.png)
 
 #### 服务器配置
 ##### bind100

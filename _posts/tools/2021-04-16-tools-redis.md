@@ -1,12 +1,11 @@
 ---
-layout: post
 title: redis
 date: 2021-04-16 17:00:00 +0800
 category: Tools
 ---
 
-#### 概述
 **redis** (REmote DIctionary Server),是用c语言开发的，分布式，key-value内存数据库，并支持持久化。
+
 #### 安装
 ```bash
 yum install redis
