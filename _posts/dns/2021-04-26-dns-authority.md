@@ -12,7 +12,7 @@ category: DNS
 3.其他情况，返回refuse。
 
 #### 流程图(概略版)
-![dns授权-流程图-概略.png](/assets/images/dns/dns授权-流程图-概略.png)
+![adns-flowchart-summary.png](/assets/images/dns/adns-flowchart-summary.png)
 
 #### 流程图(详尽版)
-![dns授权-流程图-详细.png](/assets/images/dns/dns授权-流程图-详细.png)
+![adns-flowchart-detail.png](/assets/images/dns/adns-flowchart-detail.png)
