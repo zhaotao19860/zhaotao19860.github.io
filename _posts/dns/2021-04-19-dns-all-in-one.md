@@ -17,10 +17,13 @@ category: DNS
 > bind: 开源的dns缓存、转发、递归、授权服务器实现。<br/>
 > adns: 个人实现的基于dpdk的高速dns授权服务器。<br/>
 
-#### 拓扑结构
+#### 一个例子
+![dns-example.webp](/assets/images/dns/dns-example.webp)
+
+#### 实验拓扑结构
 ![all-in-one.png](/assets/images/dns/all-in-one.png)
 
-#### 服务器配置
+#### 实验服务器配置
 ##### bind100
 >cat  /etc/bind/named.conf
 
