@@ -15,35 +15,33 @@ category: DNS
 
 #### 数据流图
 ![ADNS-TCP.webp](/assets/images/dns/ADNS-TCP.webp) <br/>
-**说明**：
-```
-1.用户发送tcp-dns请求到ADNS1；
-2.匹配fdir-tcp过滤条件；
-3.Fdir-tcp对应0-kni队列；
-4.KNI收包线程读取0号队列报文；
-5.KNI收包线程将报文转发给内核中的Veth0虚拟网卡；
-6.KNI内核线程收包并将mbuf报文转为skb内核报文，然后发给bind监听的socket;
-7.Bind从socket收包并将报文转为udp报文，然后根据forward-ip发送到Veth0或者eth0;
-8.协议栈内核线程将skb内核报文转为mbuf报文，然后放入KNI发送队列；
-9.KNI发包线程读取发送队列报文，并放入0号发送队列；
-10.网卡将udp请求报文发出；
-11.源IP为ADNS1的vEth0网卡ip，目的IP为ADNS2的vEth0网卡ip,通过路由转给ADNS2;
-12.匹配fdir-dstport53过滤条件;
-13.Fdir-dstport53对应1号队列；
-14.Worker线程接收udp dns请求并组装响应报文；
-15.Worker线程将响应报文放入1号发送队列；
-16.网卡将udp响应报文发出；
-17.源IP为ADNS2的vEth0网卡ip，目的IP为ADNS1的vEth0网卡ip,通过路由转给ADNS1;
-18.匹配fdir-dstip过滤条件;
-19.Fdir-dstip对应0号队列；
-20.KNI收包线程读取0号队列报文；
-21.KNI收包线程将报文转发给内核中的vEth0虚拟网卡；
-22.KNI内核线程收包并将mbuf报文转为skb内核报文，然后发给BIND监听的socket(如果转发端口非DPDK，走正常内核流程);
-23.BIND从socket收包并将报文转为tcp报文，然后通过查找内核路由发送到vEth0或eth0;
-24.协议栈内核线程将skb内核报文转为mbuf报文，然后放入KNI发送队列；
-25.KNI发包线程读取发送队列报文，并放入0号发送队列；
-26.网卡将tcp响应报文发送给用户；
-```
+**说明**：<br/>
+1.用户发送tcp-dns请求到ADNS1；<br/>
+2.匹配fdir-tcp过滤条件；<br/>
+3.Fdir-tcp对应0-kni队列；<br/>
+4.KNI收包线程读取0号队列报文；<br/>
+5.KNI收包线程将报文转发给内核中的Veth0虚拟网卡；<br/>
+6.KNI内核线程收包并将mbuf报文转为skb内核报文，然后发给bind监听的socket;<br/>
+7.Bind从socket收包并将报文转为udp报文，然后根据forward-ip发送到Veth0或者eth0;<br/>
+8.协议栈内核线程将skb内核报文转为mbuf报文，然后放入KNI发送队列；<br/>
+9.KNI发包线程读取发送队列报文，并放入0号发送队列；<br/>
+10.网卡将udp请求报文发出；<br/>
+11.源IP为ADNS1的vEth0网卡ip，目的IP为ADNS2的vEth0网卡ip,通过路由转给ADNS2;<br/>
+12.匹配fdir-dstport53过滤条件;<br/>
+13.Fdir-dstport53对应1号队列；<br/>
+14.Worker线程接收udp dns请求并组装响应报文；<br/>
+15.Worker线程将响应报文放入1号发送队列；<br/>
+16.网卡将udp响应报文发出；<br/>
+17.源IP为ADNS2的vEth0网卡ip，目的IP为ADNS1的vEth0网卡ip,通过路由转给ADNS1;<br/>
+18.匹配fdir-dstip过滤条件;<br/>
+19.Fdir-dstip对应0号队列；<br/>
+20.KNI收包线程读取0号队列报文；<br/>
+21.KNI收包线程将报文转发给内核中的vEth0虚拟网卡；<br/>
+22.KNI内核线程收包并将mbuf报文转为skb内核报文，然后发给BIND监听的socket(如果转发端口非DPDK，走正常内核流程);<br/>
+23.BIND从socket收包并将报文转为tcp报文，然后通过查找内核路由发送到vEth0或eth0;<br/>
+24.协议栈内核线程将skb内核报文转为mbuf报文，然后放入KNI发送队列；<br/>
+25.KNI发包线程读取发送队列报文，并放入0号发送队列；<br/>
+26.网卡将tcp响应报文发送给用户；<br/>
 
 #### bind安装及配置
 ##### 安装
