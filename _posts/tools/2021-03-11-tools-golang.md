@@ -39,6 +39,7 @@ git clone git@git.jd.com:dns-anti/common.git
 ln -s `pwd`/common $GOPATH/src/git.jd.com/dns-anti/common
 ```
 ### 调试
+参考：https://github.com/golang/vscode-go/blob/master/docs/debugging.md
 ```json
 //使用dlv插件，已在插件安装部分安装。
 launch.json
@@ -62,7 +63,10 @@ launch.json
             "mode": "exec",
             "program": "/export/go/src/jd.com/tp/tp-advanced-ddos/output/bin/advanced-ddos",
             "env": {},
-            "args": []
+            "args": ["-cdms-conf",
+                "../conf/cdms.json",
+                "-business-conf",
+                "../conf/business.json"]
         }
     ]
 }
