@@ -53,11 +53,6 @@ Dism++：开源、免费、功能强大。
 ```bash
 官网：https://www.chuyu.me/zh-Hans/
 ```
-#### PDF
-福昕PDF阅读器：国产、免费、强大。
-```bash
-官网：https://www.foxitsoftware.cn/pdf-reader/
-```
 #### MarkDown
 typora：免费、小巧、好用。
 ```bash
