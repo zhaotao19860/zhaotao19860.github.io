@@ -7,11 +7,11 @@ category: Tools
 linux系统本身自带的git版本都是非常低的，比如centos7-git-1.8.3，低版本的git会存在功能及性能的问题，所以最好升级。
 
 #### 第一步
-下载最新的发布版本，[github官网](https://github.com/git/git/git/releases]
+下载最新的发布版本
 ```bash
 cd /usr/src/
-wget https://github.com/git/git/archive/v2.32.0.tar.gz
-tar -xf v2.32.0.tar.gz
+wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.32.0.tar.gz
+tar -xf git-2.32.0.tar.gz
 ```
 #### 第二步
 安装依赖
