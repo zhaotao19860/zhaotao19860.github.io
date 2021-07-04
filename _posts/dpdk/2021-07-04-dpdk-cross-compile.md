@@ -53,13 +53,14 @@ ark.intel.com
   Vertical Segment Server
   Processor Number E5-2620
 ```
-|缩写|型号|
-|---|---|
-|wsm|Westmere|
-|nhm|Nehalem|
-|snb|Sandy Bridge|
-|ivb|Ivy Bridge|
-|hsw|HasWell|
+
+缩写|型号
+---|---
+wsm|Westmere
+nhm|Nehalem
+snb|Sandy Bridge
+ivb|Ivy Bridge
+hsw|HasWell
 #### 生成编译配置
 ```
 cp config/defconfig_x86_64-native-linuxapp-gcc config/defconfig_x86_64-snb-linuxapp-gcc
