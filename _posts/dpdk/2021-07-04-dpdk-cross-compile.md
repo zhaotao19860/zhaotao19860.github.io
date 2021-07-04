@@ -3,6 +3,14 @@ title: dpdk交叉编译
 date: 2021-07-04 15:32:00 +0800
 category: DPDK
 ---
+| 缩写 | cpu型号 | 
+| :------ | :------: |
+| wsm | Westmere |
+| nhm | Nehalem |
+| snb | Sandy Bridge |
+| ivb | Ivy Bridge |
+| hsw | HasWell |
+
 由于DPDK的优化中，使用特定cpu指令集获取更高的并发性能，作为其特性之一，比如SSE(Stream SIMD Extensions)，用于完成向量化操作，提升性能。这就会导致：如果编译环境使用的cpu与运行环境不同，就会出现Illegal Instruction的coredump问题。如何解决呢？交叉编译。
 #### 编译参数
 ```
@@ -53,14 +61,6 @@ ark.intel.com
   Vertical Segment Server
   Processor Number E5-2620
 ```
-
-缩写|型号
----|---
-wsm|Westmere
-nhm|Nehalem
-snb|Sandy Bridge
-ivb|Ivy Bridge
-hsw|HasWell
 #### 生成编译配置
 ```
 cp config/defconfig_x86_64-native-linuxapp-gcc config/defconfig_x86_64-snb-linuxapp-gcc
