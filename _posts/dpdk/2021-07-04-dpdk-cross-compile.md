@@ -53,9 +53,8 @@ ark.intel.com
   Vertical Segment Server
   Processor Number E5-2620
 ```
-cpu型号与简写
 |缩写|型号|
-|---|--------|
+|---|---|
 |wsm|Westmere|
 |nhm|Nehalem|
 |snb|Sandy Bridge|
