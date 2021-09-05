@@ -41,7 +41,7 @@ cat /proc/meminfo |grep Huge
 #修改启动配置
 sed -i -e "/GRUB_CMDLINE_LINUX/ s/\"$/ default_hugepagesz=1G hugepagesz=1G hugepages=64\"/" /etc/default/grub
 #重新生成grub
-grub_rebuild
+grub2-mkconfig -o /boot/grub2/grub.cfg
 #重启
 reboot
 #查看是否生效
