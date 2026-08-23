@@ -2,5 +2,6 @@
 layout: layout
 ---
 
-{% assign __ = site.data.languages[site.language] %}
+{% assign _lang = page.lang | default: site.language %}
+{% assign __ = site.data.languages[_lang] %}
 {% include page.html %}

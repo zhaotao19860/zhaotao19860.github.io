@@ -48,7 +48,7 @@ description: 赵涛（ZhaoTao），百度云基础服务研发工程师。十年
 **数据面与网关**（[分类](/categories/) → DPDK / Libs）
 DPDK 交叉编译与网卡适配、发包工具架构比较、基于 DPDK 的 DNS-TCP 方案。
 
-**AI 网关**（[分类](/categories/) → AI Gateway / AI Agent）
+**AI 网关**（[分类](/categories/) → AI-Gateway / AI-Agent）
 AI 网关与推理网关的分层、EPP 的边界、多 region 推理部署要不要跨机房七层调度、推理路径上的三层缓存实际能省多少钱。
 
 ---

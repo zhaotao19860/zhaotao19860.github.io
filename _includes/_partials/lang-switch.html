@@ -1,0 +1,21 @@
+{% comment %}
+Bidirectional Chinese/English switch. The target depends on the current page,
+so this cannot live in site.menu (one key there maps to one fixed href).
+{% endcomment %}
+<li class="menu-item menu-item-language">
+  {% if page.lang == 'en' %}
+    <a href="{{ '/' | relative_url }}" rel="section">
+      {% if site.menu_icons.enable %}
+        <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+      {% endif %}
+      中文
+    </a>
+  {% else %}
+    <a href="{{ '/en/' | relative_url }}" rel="section">
+      {% if site.menu_icons.enable %}
+        <i class="menu-item-icon fa fa-fw fa-language"></i> <br />
+      {% endif %}
+      English
+    </a>
+  {% endif %}
+</li>

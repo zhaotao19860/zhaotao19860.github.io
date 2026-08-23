@@ -49,6 +49,15 @@ markdown: kramdown
 kramdown:
     input: GFM
 
+# English section
+## A separate collection, not `_posts`, so the Chinese homepage, archives,
+## categories and atom feed stay untouched. English pages get `lang: en`,
+## which the layouts use to pick UI strings from _data/languages/en.yml.
+collections:
+  en:
+    output: true
+    permalink: /en/:path/
+
 # Default Attributes
 ## Docs: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 defaults:
@@ -59,6 +68,13 @@ defaults:
     values:
       layout: "post"
       comments: true
+  -
+    scope:
+      path: ""
+      type: "en"
+    values:
+      layout: "page"
+      lang: "en"
 
 # Atom feed
 feed:
@@ -123,6 +139,13 @@ menu:
   archives: /archives/
   #tags: /tags/
   #sitemap: /sitemap.xml
+
+# Menu shown on pages with `lang: en`. Kept short on purpose — the English
+# section is a subset, and linking to the Chinese categories/archives from
+# here would dump an English reader into Chinese.
+menu_en:
+  home: /en/
+  about: /en/about/
   #commonweal: /404.html
 
 

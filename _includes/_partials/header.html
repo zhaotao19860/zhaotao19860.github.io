@@ -37,9 +37,19 @@
     {% assign hasSearch = true %}
   {% endif %}
 
-  {% if site.menu %}
+  {% comment %}
+    English pages get their own short menu (site.menu_en) so that Home and About
+    stay inside /en/ instead of dropping the reader onto a Chinese page.
+  {% endcomment %}
+  {% if page.lang == 'en' and site.menu_en %}
+    {% assign nav_menu = site.menu_en %}
+  {% else %}
+    {% assign nav_menu = site.menu %}
+  {% endif %}
+
+  {% if nav_menu %}
     <ul id="menu" class="menu">
-      {% for name_path in site.menu %}
+      {% for name_path in nav_menu %}
         {% assign name = name_path[0] %}
         {% assign path = name_path[1] %}
         {% assign itemName = name | downcase %}
@@ -52,6 +62,8 @@
           </a>
         </li>
       {% endfor %}
+
+      {% include _partials/lang-switch.html %}
 
       {% if hasSearch %}
         <li class="menu-item menu-item-search">
