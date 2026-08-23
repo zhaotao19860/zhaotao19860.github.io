@@ -2,7 +2,7 @@
 layout: post
 title: "AI 网关与推理网关，谁会占领市场？"
 date: 2026-07-29 20:09:27 +0800
-categories: [AI Gateway]
+category: AI-Gateway
 tags: [AI Gateway, Inference Gateway, Kubernetes, F5]
 excerpt: "答案不是二选一：统一控制面会赢得采购入口，池内推理调度会长期独立"
 ---

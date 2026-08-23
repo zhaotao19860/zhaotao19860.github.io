@@ -2,7 +2,7 @@
 layout: post
 title: "把 cc-connect 跑起来：从编译修复到 macOS 后台服务"
 date: 2026-06-14 23:16:23 +0800
-categories: [AI Agent]
+category: AI-Agent
 tags: [cc-connect, Claude Code, Codex, macOS, launchd]
 ---
 
