@@ -126,18 +126,54 @@ wrong answer, and it takes them a while to conclude the problem is you rather
 than them. That is how you get a **days-long** time to detection for a
 correctness bug in a system with microsecond latency.
 
-The fix is not subtle, it is just work: actively query every node and compare the
-responses. I built that consistency monitoring, and it took time-to-detection
-from **days down to minutes**.
+The fix is not subtle, it is just work: actively query every node and compare
+what it answers against what it was supposed to answer. I built that consistency
+monitoring, and it took time-to-detection from **days down to minutes**.
 
-The design question worth thinking about carefully is what you compare
-*against*. Comparing nodes to each other catches divergence, which is the common
-case — but it passes cleanly when every node is uniformly wrong, which is exactly
-what a bad push produces. Comparing each node against the control plane's
-intended state catches that too, at the cost of needing the intended state
-expressed in a form you can turn into expected answers. The two checks fail in
-different directions, and knowing which one you have is knowing which outages you
-will still be finding out about from customers.
+Two design choices carried most of the weight.
+
+**Anchor the check on the primary's own change event, not on a timer.** The
+primary already writes a line to its log every time it notifies its secondaries:
+this zone, this view, this new serial. Tailing that log gives you both halves for
+free — the trigger, and the expected value. Each notify line fans out into one
+probe per configured secondary, and the probe is a signed `SOA` query over the
+same UDP path any resolver uses. Convergence is `answer_serial >=
+notify_serial`; the `>=` matters, because by the time you ask, the zone may have
+legitimately advanced past the serial you were waiting for. Until it converges
+the probe is re-queued with a bounded retry count and a widening delay, and the
+elapsed time from notify to first converged answer is recorded per (zone, view,
+secondary). That record is the thing worth having: not "is it consistent" as a
+boolean, but a distribution of propagation delay you can alert on and read back
+after an incident.
+
+The property that makes this work is that **the expected value comes from
+outside the thing being checked.** The secondary is never asked to self-report;
+it is asked a question whose answer was already known from the primary's side.
+That closes the hole in the obvious version of this check — comparing nodes to
+each other catches divergence, which is the common case, but it passes cleanly
+when every node is uniformly wrong, which is exactly what a bad push produces.
+
+**Then add a sweep, because an event-driven check only sees events.** The failure
+that hurts most is the zone that never generated a notify at all, or whose notify
+line went by while the checker was restarting. So a second mode walks the entire
+configured zone list, asks the primary for each zone's current serial, and
+re-asks every secondary against that snapshot; whatever fails is written back out
+and re-checked on the next pass. The event-driven path buys you latency, the
+sweep buys you coverage, and neither substitutes for the other.
+
+What this deliberately does *not* do is compare record content. The oracle is the
+serial, so a node sitting at the correct serial while serving wrong data passes.
+That is a real gap and a defensible trade — serial comparison is cheap enough to
+run against every zone on every node continuously, and the bug it misses is much
+rarer than the bug it catches. Still worth being explicit about which one you
+bought, because "consistency monitoring is green" is a sentence people will
+repeat to each other during an outage.
+
+The other honest limitation is the coupling. This works because the primary emits
+a parseable line on every notify — and a log format is not an API. Every time the
+primary changed underneath it, a different implementation or just a different
+version with the fields shifted by one, the parser had to change with it. The
+monitoring's correctness rests on something nobody involved considers a contract.
 
 This is invisible infrastructure. On a normal day it produces nothing. Its entire
 value is realized during incidents, which makes it perpetually hard to justify
@@ -152,9 +188,12 @@ graphs QPS and p99 latency. Far fewer graph the distribution of
 change-to-in-effect latency per node, which is where the user-visible failures
 actually come from.
 
-**Make the correctness oracle external to the thing it checks.** A system cannot
-validate itself using the same state that might be corrupt. If the checker reads
-from the data plane's cache, it will confirm whatever the data plane believes.
+**Derive the expected value from the event that requested the change.** A system
+cannot validate itself against state that might itself be corrupt, so the checks
+worth building are the ones where something upstream has already told you what
+the answer should be. Change events are the cheapest source of that: they carry
+the trigger and the expectation together, and they cost nothing to produce
+because the system was logging them anyway.
 
 **Treat performance as a constraint that generates obligations, not as an
 achievement.** Choosing kernel bypass is choosing to reimplement observability,
