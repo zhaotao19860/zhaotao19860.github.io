@@ -5,6 +5,8 @@ category: AI-Gateway
 tags: [AI Gateway, Batching, vLLM, Inference Gateway]
 excerpt: "离线 Batch API、连续批处理、网关侧请求合并，三者层次不同、换取的东西也不同"
 ---
+![cover](/assets/images/ai-gateway/batching-in-ai-gateway/cover-v1.png)
+
 聊 AI 网关时，「批处理」这个词出现的频率很高，但它几乎从来不指同一件事。有人说的是给模型厂商提交一个隔夜跑完的 JSONL 文件，有人说的是 vLLM 里把多个请求拼进同一次前向传播，还有人说的是网关把一百个 embedding 请求合成一次调用。三件事的层次、收益和代价完全不同，混在一起谈必然得不出结论。
 
 先把它们拆开。
@@ -30,6 +32,8 @@ OpenAI、Anthropic、Gemini 都提供 Batch 端点。使用方式是把成千上
 
 「连续」的关键在于不等整批做完。传统静态批处理要等批内最长的那条序列生成结束才能换批，短请求被长请求拖着一起等。连续批处理在每个 decode step 结束后就调度一次：完成的序列踢出，新到的请求插进来。这个思路由 Orca 论文提出（也叫 iteration-level scheduling），vLLM 把它和 PagedAttention 结合后成为事实标准，吞吐提升可以到一个数量级。
 
+![body-continuous-batching](/assets/images/ai-gateway/batching-in-ai-gateway/body-continuous-batching-v1.png)
+
 网关在这里的职责是**不要破坏它**：
 
 - 保持流式透传，不要缓冲整个响应。缓冲会让 TTFT 指标失真，也白白吃掉引擎的流水线优势。
@@ -52,6 +56,8 @@ OpenAI、Anthropic、Gemini 都提供 Batch 端点。使用方式是把成千上
 ## 四、怎么选
 
 判断依据只有一条：这份流量的延迟预算是多少。
+
+![body-latency-budget](/assets/images/ai-gateway/batching-in-ai-gateway/body-latency-budget-v1.png)
 
 - 有 SLA 的在线对话流量。只碰第二和第三种，绝不进 Batch API。
 - 离线跑批、可接受隔夜出结果。走 Batch API，省一半钱。这里最容易被忽略的收益不是折扣，而是不占同步配额，等于给在线流量腾出了额度。
