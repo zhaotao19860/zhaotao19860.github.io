@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "两个 harness 设置让 ARC-AGI-3 分数翻三倍：保留推理链与上下文压缩"
-date: 2026-08-26 21:30:00 +0800
+date: 2026-08-26 14:50:00 +0800
 category: AI-Agent
 tags: [Codex, Harness, Agent, Responses API, Context Engineering]
 excerpt: "同一个未改动的模型，换 harness 分数从 13.3% 到 38.3%，输出 token 还降了六倍。这两个机制到底在补什么漏"
