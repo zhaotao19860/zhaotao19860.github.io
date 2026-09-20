@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TypeSafe Jev 接不进 AI 网关:为什么,以及它的最优用法"
-date: 2026-09-20 18:00:00 +0800
+date: 2026-09-20 10:00:00 +0800
 categories: [AI Gateway]
 tags: [TypeSafe, Jev, AI Gateway, 结构化输出]
 ---
@@ -16,7 +16,7 @@ tags: [TypeSafe, Jev, AI Gateway, 结构化输出]
 
 先说清楚 Jev 不是什么:它不是又一个 GPT、Claude、Gemini 那样的文本生成模型。
 
-TypeSafe 把它定义为 "System One" 模型,做的是一件很窄但很硬的事——**快速给出软件可以直接消费的结构化决策**。你给它一段 state(状态)加上若干个有类型的问题,它并行、独立地评估每个问题,直接返回带类型的结果和概率分布,不生成文本,也不需要你去解析。
+TypeSafe 把它定义为 "System One" 模型,做的是一件很窄但很关键的事——**快速给出软件可以直接消费的结构化决策**。你给它一段 state(状态)加上若干个有类型的问题,它并行、独立地评估每个问题,直接返回带类型的结果和概率分布,不生成文本,也不需要你去解析。
 
 它对外暴露三种原语:
 
@@ -34,8 +34,8 @@ TypeSafe 把它定义为 "System One" 模型,做的是一件很窄但很硬的�
 
 而 Jev 把这套抽象赖以成立的假设逐条打破:
 
-- **请求形状不同**:普通模型是 `messages[]` 一段对话文本;Jev 是 `state` + 一组 typed questions,根本不是同一种入参。
-- **响应形状不同**:普通模型返回文本 / 逐 token 流式;Jev 返回类型化的值、概率分布和置信度,没有 token 流可转发。
+- **请求不同**:普通模型是 `messages[]` 一段对话文本;Jev 是 `state` + 一组 typed questions,根本不是同一种入参。
+- **响应不同**:普通模型返回文本 / 逐 token 流式;Jev 返回类型化的值、概率分布和置信度,没有 token 流可转发。
 - **语义缓存对不上**:网关的 semantic cache 拿 prompt 文本或 embedding 做 key;Jev 的输入是 state+问题,缓存模型直接失效。
 - **计费与观测对不上**:网关普遍按输入输出 token 计量成本和画 dashboard;Jev 不是那样按输出 token 计费的,token 维度的账单直接没意义。
 - **护栏对不上**:内容审核护栏针对的是文本;Jev 输出的是结构化决策,没有可审的文本正文。
