@@ -569,19 +569,16 @@ busuanzi_count:
   page_pv_footer:
 
 # Giscus comments (GitHub Discussions based).
-# Steps to fill the ids below:
-#   1. Make sure this repo is public and enable the Discussions tab in repo Settings.
-#   2. Install the giscus app: https://github.com/apps/giscus (grant it this repo).
-#   3. Open https://giscus.app , enter zhaotao19860/zhaotao19860.github.io ,
-#      choose mapping = pathname , pick a Discussion category (e.g. Announcements),
-#      then copy data-repo-id and data-category-id shown in the generated snippet.
-#   4. Paste them here and set enable: true , then commit & push.
+# Discussions are enabled and the repo/category ids below were resolved via the
+# GitHub GraphQL API. The ONLY remaining manual step is installing the giscus app:
+#   https://github.com/apps/giscus  ->  Configure  ->  grant this repo.
+# Until the app is installed, giscus renders an "app not installed" notice.
 giscus:
-  enable: false
+  enable: true
   repo: zhaotao19860/zhaotao19860.github.io
-  repo_id:            # paste data-repo-id from giscus.app
+  repo_id: MDEwOlJlcG9zaXRvcnkzMzY5MzY1NTQ=
   category: Announcements
-  category_id:        # paste data-category-id from giscus.app
+  category_id: DIC_kwDOFBU-as4DGA2s
   mapping: pathname
   reactions_enabled: 1
   emit_metadata: 0
