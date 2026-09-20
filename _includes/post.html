@@ -65,24 +65,4 @@
         crossorigin="anonymous"
         async>
 </script>
-{% else %}
-<div id="comment-thread"></div>
-<div id="loading-spin"></div>
-<script type="text/javascript">
-   getComments({
-       type: "github",
-       user: "zhaotao19860",
-       repo: "zhaotao19860.github.io",
-       no_comment: "No comments yet. Press the button and go to comment now!",
-       go_to_comment: "去留言",
-       issue_title: "{{ post.title }}",
-       //issue_id: "{{ post.issue_id }}",
-       btn_class: "btn",
-       comments_target: "#comment-thread",
-       loading_target: "#loading-spin",
-       client_id: "899ae4e83907f8784dde",
-       client_secret: "52c8f2597666f876cc1a9a648c8f5108bac799fd"
-   });
-   //getComments(opt);
-</script>
 {% endif %}
