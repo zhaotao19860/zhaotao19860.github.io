@@ -48,6 +48,24 @@
     {% endif %}
   </div>
 </div>
+{% if site.giscus.enable %}
+<div class="giscus"></div>
+<script src="https://giscus.app/client.js"
+        data-repo="{{ site.giscus.repo }}"
+        data-repo-id="{{ site.giscus.repo_id }}"
+        data-category="{{ site.giscus.category }}"
+        data-category-id="{{ site.giscus.category_id }}"
+        data-mapping="{{ site.giscus.mapping | default: 'pathname' }}"
+        data-strict="0"
+        data-reactions-enabled="{{ site.giscus.reactions_enabled | default: 1 }}"
+        data-emit-metadata="{{ site.giscus.emit_metadata | default: 0 }}"
+        data-input-position="{{ site.giscus.input_position | default: 'bottom' }}"
+        data-theme="{{ site.giscus.theme | default: 'light' }}"
+        data-lang="{{ site.giscus.lang | default: 'zh-CN' }}"
+        crossorigin="anonymous"
+        async>
+</script>
+{% else %}
 <div id="comment-thread"></div>
 <div id="loading-spin"></div>
 <script type="text/javascript">
@@ -67,3 +85,4 @@
    });
    //getComments(opt);
 </script>
+{% endif %}

@@ -554,7 +554,7 @@ leancloud_visitors:
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
   # count values only if the other configs are false
-  enable: false
+  enable: true
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
@@ -567,6 +567,27 @@ busuanzi_count:
   page_pv: true
   page_pv_header: <i class="fa fa-file-o"></i>
   page_pv_footer:
+
+# Giscus comments (GitHub Discussions based).
+# Steps to fill the ids below:
+#   1. Make sure this repo is public and enable the Discussions tab in repo Settings.
+#   2. Install the giscus app: https://github.com/apps/giscus (grant it this repo).
+#   3. Open https://giscus.app , enter zhaotao19860/zhaotao19860.github.io ,
+#      choose mapping = pathname , pick a Discussion category (e.g. Announcements),
+#      then copy data-repo-id and data-category-id shown in the generated snippet.
+#   4. Paste them here and set enable: true , then commit & push.
+giscus:
+  enable: false
+  repo: zhaotao19860/zhaotao19860.github.io
+  repo_id:            # paste data-repo-id from giscus.app
+  category: Announcements
+  category_id:        # paste data-category-id from giscus.app
+  mapping: pathname
+  reactions_enabled: 1
+  emit_metadata: 0
+  input_position: bottom
+  theme: light
+  lang: zh-CN
 
 
 # Tencent analytics ID
