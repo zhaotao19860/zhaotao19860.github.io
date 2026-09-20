@@ -2,7 +2,7 @@
 layout: post
 title: "TypeSafe Jev 接不进 AI 网关:为什么,以及它的最优用法"
 date: 2026-09-20 10:00:00 +0800
-categories: [AI Gateway]
+category: AI-Gateway
 tags: [TypeSafe, Jev, AI Gateway, 结构化输出]
 ---
 
